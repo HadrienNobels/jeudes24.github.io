@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f0f0f0; /* Light gray */
+    }
+    select, input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 18px;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 18px;
+      font-size: 1.2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    #message {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+    #welcome {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Login Form -->
+    <div id="loginForm">
+        <label for="username">Sélectionnez votre nom de patrouille:</label>
+        <select id="username">
+            <option value="admin">--- Veuillez Sélectionner ---</option>
+            <option value="Poules">POULES</option>
+            <option value="Faons">FAONS</option>
+            <option value="Perroquets">PERROQUETS</option>
+            <option value="Lapins">LAPINS</option>
+            <option value="Chats">CHATS</option>
+            <option value="Chouettes">CHOUETTES</option>
+            <option value="Chèvres">CHÈVRES</option>
+            <option value="Chiens">CHIENS</option>
+        </select>
+        <input type="text" id="balise" placeholder="Numéro de la balise" />
+        <input type="password" id="password" placeholder="Clé de la balise" />
+        <button onclick="login()">Valider</button>
+        <p id="message"></p>
+      </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome">
+        <h2>Coucou les <span id="displayUserNumber"></span> :)</h2>
+        <p>Félicitations !</p>
+        <p>Vous venez de valider la balise <span id="displayBalise"></span>.</p>
+        <button onclick="logout()">Retour</button>
+    </div>
+    <script>
+        const storedUsers = {
+            "1": "83427691",
+            "2": "10928473",
+            "3": "56782934",
+            "4": "23489017",
+            "5": "78120345",
+            "6": "45213890",
+            "7": "98347126",
+            "8": "12439875",
+            "9": "76420398",
+            "10": "39487510",
+            "11": "80213476",
+            "12": "62398745",
+            "13": "13984276",
+            "14": "87439201",
+            "15": "23019847",
+            "16": "95830217",
+            "17": "74819283",
+            "18": "39028476",
+            "19": "56123098",
+            "20": "81923764",
+            "21": "70238491",
+            "22": "18402937",
+            "23": "67382910",
+            "24": "29487120",
+            "25": "43890214",
+            "26": "15832097",
+            "27": "61028473",
+            "28": "89234710",
+            "29": "94382714",
+            "30": "78120493",
+            "31": "29384750",
+            "32": "12039485",
+            "33": "76543928",
+            "34": "84730192",
+            "35": "30847219",
+            "36": "54932018",
+            "37": "67239481",
+            "38": "31829745",
+            "39": "90384720",
+            "40": "68124903",
+            "41": "29478310",
+            "42": "71823490",
+            "43": "82309472",
+            "44": "10394827",
+            "45": "29483715",
+            "46": "87239401",
+            "47": "43678291",
+            "48": "50918234",
+            "49": "91827364",
+            "50": "87420398",
+            "51": "28374629",
+            "52": "76128394",
+            "53": "39481203",
+            "54": "12938476",
+            "55": "89017234",
+            "56": "62394810",
+            "57": "73284901",
+            "58": "48102937",
+            "59": "19384720",
+            "60": "58029347",
+            "61": "10293847",
+            "62": "32018473",
+            "63": "47382910",
+            "64": "29817364",
+            "65": "73120984",
+            "66": "59482017",
+            "67": "78239481",
+            "68": "18237490",
+            "69": "94738201",
+            "70": "36481920"
+            };
+
+    function login() {
+      const userNumber = document.getElementById("username").value;
+      const balise = document.getElementById("balise").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      const userData = storedUsers[balise];
+
+    if (userNumber == "admin") {
+        message.style.color = "red";
+        message.textContent = "Veuillez sélectionner un nom de patrouille valide.";
+        return;
+    }
+    if (userData && userData === password) {
+        // Show personalized welcome message
+        document.getElementById("displayBalise").textContent = balise;
+        document.getElementById("displayUserNumber").textContent = userNumber;
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("welcome").style.display = "block";
+        parent.postMessage({ balise }, "*");
+
+
+        // Send user number to parent page (main.html)
+        parent.postMessage({ userNumber }, "*");
+      } else {
+        message.style.color = "red";
+        message.textContent = "Le mot de passe n'est pas correct pour la balise indiquée.";
+            }
+    }
+
+    function logout() {
+      document.getElementById("password").value = "";
+      document.getElementById("message").textContent = "";
+        document.getElementById("balise").value = "";
+
+        document.getElementById("displayBalise").textContent = "";
+
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("welcome").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
