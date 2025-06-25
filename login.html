@@ -170,11 +170,7 @@
         document.getElementById("displayUserNumber").textContent = userNumber;
         document.getElementById("loginForm").style.display = "none";
         document.getElementById("welcome").style.display = "block";
-        parent.postMessage({ balise }, "*");
-
-
-        // Send user number to parent page (main.html)
-        parent.postMessage({ userNumber }, "*");
+        parent.postMessage({ balise, username:userNumber}, "*");
       } else {
         message.style.color = "red";
         message.textContent = "Le mot de passe n'est pas correct pour la balise indiquée.";

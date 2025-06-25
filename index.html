@@ -1,3 +1,10 @@
+
+<!-- A FAIRE
+Changer noms des patrouilles
+Ajouter coordonnées des balises et du camp
+ 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +30,7 @@
     const analytics = getAnalytics(app);
     const db = getDatabase(app, "https://jeu-des-24-default-rtdb.europe-west1.firebasedatabase.app");
     window.firebase = { db, ref, set, get, child };
+
   </script>
 
   <meta charset="UTF-8" />
@@ -184,7 +192,7 @@
       const { db, ref, get } = window.firebase;
 
       try {
-        const snapshot = await get(ref(db, 'validatedPins'));
+        const snapshot = await get(ref(db, 'balises_validées'));
         const pins = snapshot.val();
 
         if (pins) {
@@ -223,10 +231,11 @@
 
         marker.setIcon(greenIcon);
         marker.bindPopup(`Balise ${baliseId} (validée)`).openPopup();
-        await set(ref(db, 'validatedPins/' + baliseId), true);
+        await set(ref(db, 'balises_validées/' + baliseId), true);
+        await set(ref(db, 'infos_balises/' + Date.now()), {balise: baliseId, patrouille:event.data.username, heure:formatTimestamp(Date.now())});
 
         // Retrieve all validated pins
-        const snapshot = await get(ref(db, 'validatedPins'));
+        const snapshot = await get(ref(db, 'balises_validées'));
         const pins = snapshot.val();
         if (pins) {
         for (const pinId in pins) {
@@ -253,6 +262,15 @@
         marker.setIcon(greenIcon);
         marker.bindPopup(`Balise ${pinId} (validée)`);
         }
+      }
+
+      function formatTimestamp(ts) {
+        const date = new Date(ts);
+        return date.getFullYear() + '-' +
+          String(date.getMonth() + 1).padStart(2, '0') + '-' +
+          String(date.getDate()).padStart(2, '0') + ' ' +
+          String(date.getHours()).padStart(2, '0') + ':' +
+          String(date.getMinutes()).padStart(2, '0');
       }
   </script>
 </body>
