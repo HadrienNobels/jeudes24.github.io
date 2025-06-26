@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+    import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDD8u8CBRjWRI-khUfJxmyINSeTMeqaF24",
+      authDomain: "jeu-des-24.firebaseapp.com",
+      projectId: "jeu-des-24",
+      storageBucket: "jeu-des-24.firebasestorage.app",
+      messagingSenderId: "948758114165",
+      appId: "1:948758114165:web:edcb63e71fb41eca6eed3c",
+      measurementId: "G-RNL88LYHW5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase(app, "https://jeu-des-24-default-rtdb.europe-west1.firebasedatabase.app");
+    window.firebase = { db, ref, set, get, child };
+
+  </script>
   <meta charset="UTF-8">
   <title>Valider</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,19 +185,31 @@
             "70": "36481920"
             };
 
-    function login() {
+    async function login() {
       const userNumber = document.getElementById("username").value;
       const balise = document.getElementById("balise").value;
       const password = document.getElementById("password").value;
       const message = document.getElementById("message");
 
       const userData = storedUsers[balise];
+    
+    const { db, ref, get } = window.firebase;
 
     if (userNumber == "admin") {
         message.style.color = "red";
         message.textContent = "Veuillez sélectionner un nom de patrouille valide.";
         return;
     }
+
+    const baliseRef = ref(db, 'balises_validées/' + balise);
+    try {
+      const snapshot = await get(baliseRef);
+      if (snapshot.exists()) {
+        message.style.color = "red";
+        message.textContent = "Cette balise a déjà été validée.";
+        return;
+      }
+
     if (userData && userData === password) {
         // Show personalized welcome message
         document.getElementById("displayBalise").textContent = balise;
@@ -184,7 +221,15 @@
         message.style.color = "red";
         message.textContent = "Le mot de passe n'est pas correct pour la balise indiquée.";
             }
+    
+    } catch (error) {
+      message.style.color = "red";
+      message.textContent = "Une erreur s'est produite lors de la validation de la balise.";  
+      console.error("Error fetching balise data:", error);
+
     }
+    }
+    window.login = login;
 
     function logout() {
       document.getElementById("password").value = "";
