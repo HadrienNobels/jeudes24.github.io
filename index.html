@@ -66,159 +66,62 @@
     }).addTo(map);
 
     const baliseLocations = {
-      "CAMP": [50.364481451398525, 5.55291543783812],
-
-"1": [50.367917, 5.518556],
-"2": [50.3765, 5.520944],
-"3": [50.371056, 5.537417],
-"4": [50.363972, 5.531333],
-"5": [50.353333, 5.53575],
-"6": [50.352333, 5.507528],
-"7": [50.348611, 5.553028],
-"8": [50.346583, 5.56775],
-"9": [50.3345, 5.523333],
-"10": [50.341306, 5.505111],
-"11": [50.3345, 5.450083],
-"12": [50.368, 5.439083],
-"13": [50.388667, 5.47825],
-"14": [50.360444, 5.474833],
-"15": [50.382194, 5.587444],
-"16": [50.399083, 5.608528],
-"17": [50.395, 5.556139],
-"18": [50.402694, 5.525111],
-"19": [50.320917, 5.575556],
-"20": [50.300472, 5.510722],
-"21": [50.324889, 5.490028],
-"22": [50.285917, 5.442806],
-"23": [50.36175, 5.6215],
-"24": [50.384417, 5.641667],
-"25": [50.393111, 5.619167],
-"26": [50.327167, 5.628417],
-"27": [50.298778, 5.600861],
-"28": [50.306194, 5.554861],
-"29": [50.310694, 5.480472],
-"30": [50.285917, 5.473556],
-"31": [50.302639, 5.494944],
-"32": [50.319694, 5.449111],
-"33": [50.330028, 5.546083],
-"34": [50.407944, 5.488056],
-"35": [50.411694, 5.442556],
-"36": [50.434306, 5.437444],
-"37": [50.453028, 5.457306],
-"38": [50.441167, 5.468972],
-"39": [50.456444, 5.512111],
-"40": [50.429611, 5.634611],
-"41": [50.428722, 5.541306],
-"42": [50.445611, 5.600139],
-"43": [50.452667, 5.550417],
-"44": [50.454278, 5.571833],
-"45": [50.451778, 5.592083],
-"46": [50.430722, 5.586167],
-"47": [50.405583, 5.573333],
-"48": [50.388417, 5.5565],
-"49": [50.279639, 5.546472],
-"50": [50.2945, 5.573167],
-"51": [50.357639, 5.580528],
-"52": [50.280917, 5.635972],
-"53": [50.280278, 5.616361],
-"53": [50.275556, 5.631194],
-"54": [50.278889, 5.573778],
-"55": [50.280583, 5.518944],
-"56": [50.312528, 5.611278],
-"57": [50.302861, 5.618417],
-"58": [50.326028, 5.639667],
-"59": [50.333, 5.632694],
-"60": [50.342028, 5.600417],
-"61": [50.355611, 5.603556],
-"62": [50.381222, 5.618972],
-"63": [50.374389, 5.641194],
-"64": [50.412889, 5.561778],
-"65": [50.435222, 5.564806],
-"66": [50.440278, 5.499028],
-"67": [50.434583, 5.618556],
-"68": [50.419194, 5.627639],
-"69": [50.426139, 5.611861],
-"70": [50.444972, 5.628333],
-"71": [50.419722, 5.469333],
-"72": [50.425028, 5.481611],
-"73": [50.377444, 5.570583],
-"74": [50.35125, 5.631833],
-"75": [50.319222, 5.629917],
-"76": [50.294389, 5.639861],
-"77": [50.318472, 5.512944],
-"78": [50.318778, 5.489222],
-"79": [50.383306, 5.442444],
-"80": [50.396389, 5.459361],
-"81": [50.396806, 5.503917],
-"82": [50.418833, 5.527944],
-"83": [50.37575, 5.598917],
-"84": [50.326306, 5.596417],
-"85": [50.336806, 5.471667],
-"85": [50.332028, 5.481389],
-"86": [50.302944, 5.532139],
-"87": [50.383611, 5.497028],
-"88": [50.308389, 5.585333],
-"89": [50.307472, 5.448028],
-"89": [50.313167, 5.443139],
-"90": [50.300667, 5.473389],
-"91": [50.293306, 5.498222],
-"92": [50.452889, 5.617417],
-"92": [50.451417, 5.615889],
-"93": [50.416139, 5.597556],
-"94": [50.410806, 5.640083],
-"95": [50.447583, 5.526361],
-"96": [50.353056, 5.439889],
-"97": [50.320083, 5.552917],
-"98": [50.396694, 5.589361],
-"99": [50.417667, 5.503889],
-"100": [50.367722, 5.490444]
+      "92": [50.451417, 5.615889],
+      "93": [50.416139, 5.597556],
+      "94": [50.410806, 5.640083],
+      "95": [50.447583, 5.526361],
+      "96": [50.353056, 5.439889],
+      "97": [50.320083, 5.552917],
+      "98": [50.396694, 5.589361],
+      "99": [50.417667, 5.503889],
+      "100": [50.367722, 5.490444]
     };
 
-
-    const patrouilleIcons = {
-      "Phénix": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png",
-      "Quokkas": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png",
-      "Rats": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png",
-      "Koalas": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-turquoise.png",
-      "Vaches": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
-      "Cougars": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-pink.png",
-      "Poussins": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
-      "Chats": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-gold.png"
+    // Couleurs personnalisées pour chaque patrouille
+    const patrouilleColors = {
+      "Phénix": "#1E90FF",   // bleu dodger
+      "Quokkas": "#32CD32",  // vert lime
+      "Rats": "#8A2BE2",     // violet blue
+      "Koalas": "#FFA500",   // orange
+      "Vaches": "#FFFF00",   // jaune
+      "Cougars": "#FF69B4",  // rose chaud
+      "Poussins": "#00CED1", // turquoise
+      "Chats": "#FF8C00"     // orange foncé
     };
+
+    // Fonction pour créer une icône SVG Leaflet avec la couleur donnée
+    function createColoredIcon(color) {
+      return L.divIcon({
+        className: "",
+        html: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 25 41" >
+                 <path fill="${color}" stroke="black" stroke-width="1" d="M12.5 0C7 0 2.5 4.5 2.5 10c0 8.3 10 30 10 30s10-21.7 10-30c0-5.5-4.5-10-10-10z"/>
+                 <circle cx="12.5" cy="10" r="5" fill="white"/>
+               </svg>`,
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    }
 
     const baliseMarkers = {};
 
-    const blackIcon = new L.Icon({
-      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
-      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
-    });
+    // Icone par défaut pour balises non validées (grise)
+    const defaultIcon = createColoredIcon("#888888");
 
-    const redIcon = new L.Icon({
-      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      iconSize: [40, 60],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
-    });
+    L.marker(baliseLocations["CAMP"], { icon: redIcon }).bindPopup("CAMP").addTo(map);
 
+    // Création des markers avec icône grise par défaut
     for (const [baliseId, coords] of Object.entries(baliseLocations)) {
-      if (baliseId === "CAMP") continue;
-
       const marker = L.marker(coords, {
         title: `Balise ${baliseId}`,
-        icon: blackIcon
+        icon: defaultIcon
       }).addTo(map).bindPopup(`Balise ${baliseId}`);
 
       baliseMarkers[baliseId] = marker;
     }
 
-    L.marker(baliseLocations["CAMP"], { icon: redIcon }).bindPopup("CAMP").addTo(map);
-
+    // Chargement des balises validées depuis Firebase au chargement
     window.addEventListener("DOMContentLoaded", async () => {
       const { db, ref, get } = window.firebase;
 
@@ -229,7 +132,7 @@
         if (pins) {
           for (const pinId in pins) {
             if (pins[pinId]) {
-              turnPinGreen(pinId, pins[pinId]);
+              turnPinColored(pinId, pins[pinId]);
             }
           }
         }
@@ -238,6 +141,7 @@
       }
     });
 
+    // Réception des messages validant les balises
     window.addEventListener("message", async (event) => {
       if (!event.data || !event.data.balise) return;
 
@@ -248,17 +152,8 @@
 
       const { db, ref, set, get } = window.firebase;
 
-      const iconUrl = patrouilleIcons[patrouille] ||
-        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png";
-
-      const customIcon = new L.Icon({
-        iconUrl,
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+      const color = patrouilleColors[patrouille] || "#008000"; // vert par défaut
+      const customIcon = createColoredIcon(color);
 
       marker.setIcon(customIcon);
       marker.bindPopup(`Balise ${baliseId} (validée par les ${patrouille})`).openPopup();
@@ -270,37 +165,31 @@
         heure: formatTimestamp(Date.now())
       });
 
+      // Recharger toutes les balises validées pour garantir la synchro
       const snapshot = await get(ref(db, 'balises_validées'));
       const pins = snapshot.val();
       if (pins) {
         for (const pinId in pins) {
           if (pins[pinId]) {
-            turnPinGreen(pinId, pins[pinId]);
+            turnPinColored(pinId, pins[pinId]);
           }
         }
       }
     });
 
-    function turnPinGreen(pinId, patrouille) {
+    // Change l'icône d'une balise validée avec la bonne couleur
+    function turnPinColored(pinId, patrouille) {
       const marker = baliseMarkers[pinId];
       if (!marker) return;
 
-      const iconUrl = patrouilleIcons[patrouille] ||
-        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png";
-
-      const customIcon = new L.Icon({
-        iconUrl,
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+      const color = patrouilleColors[patrouille] || "#008000"; // vert par défaut
+      const customIcon = createColoredIcon(color);
 
       marker.setIcon(customIcon);
       marker.bindPopup(`Balise ${pinId} (validée par ${patrouille})`);
     }
 
+    // Formatage d'heure lisible
     function formatTimestamp(ts) {
       const date = new Date(ts);
       return date.getFullYear() + '-' +
