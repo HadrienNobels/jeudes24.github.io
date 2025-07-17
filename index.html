@@ -261,7 +261,7 @@
       });
 
       marker.setIcon(customIcon);
-      marker.bindPopup(`Balise ${baliseId} (validée par les ${patrouille})`).openPopup();
+      marker.bindPopup(`Balise ${baliseId} (validée)`).openPopup();
 
       await set(ref(db, 'balises_validées/' + baliseId), patrouille);
       await set(ref(db, 'infos_balises/' + Date.now()), {
